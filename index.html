@@ -13,37 +13,37 @@
     <div class="container">
         <div class="calculator-exterior">
             <div id="display">
-                <p><span id="display-text">1234567890</span></p>
+                <p><span id="display-text">Welcome!</span></p>
             </div>
             <div id="buttons-container">
                 <div id="first-row">
                     <button class="buttons" onclick="acOnClick()" > AC </button>
-                    <button class="buttons"> C </button>
+                    <button class="buttons" onclick="clearScreen()" > C </button>
                     <button class="buttons"> % </button>
-                    <button class="buttons"> ÷ </button>
+                    <button class="buttons" onclick="divideButton()"> ÷ </button>
                 </div>
                 <div id="second-row">
                     <button class="buttons" value="7" onclick="numberOnClick(value)"> 7 </button>
                     <button class="buttons" value="8" onclick="numberOnClick(value)"> 8 </button>
                     <button class="buttons" value="9" onclick="numberOnClick(value)"> 9 </button>
-                    <button class="buttons"> + </button>
+                    <button class="buttons" onclick="addButton()"> + </button>
                 </div>
                 <div id="third-row">
                     <button class="buttons" value="4" onclick="numberOnClick(value)"> 4 </button>
                     <button class="buttons" value="5" onclick="numberOnClick(value)"> 5 </button>
                     <button class="buttons" value="6" onclick="numberOnClick(value)"> 6 </button>
-                    <button class="buttons" > - </button>
+                    <button class="buttons" onclick="subtractButton()"> - </button>
                 </div>
                 <div id="fourth-row">
                     <button class="buttons" value="1" onclick="numberOnClick(value)"> 1 </button>
                     <button class="buttons" value="2" onclick="numberOnClick(value)"> 2 </button>
                     <button class="buttons" value="3" onclick="numberOnClick(value)"> 3 </button>
-                    <button class="buttons"> x </button>
+                    <button class="buttons" onclick="multiplyButton()"> x </button>
                 </div>
                 <div id="fifth-row">
                     <button class="buttons" value="0" onclick="numberOnClick(value)"> 0 </button>
                     <button class="buttons"> . </button>
-                    <button class="buttons" id = "equal-button"> = </button>
+                    <button class="buttons" id = "equal-button" onclick="showResult()"> = </button>
                 </div>
             </div>
         </div>
