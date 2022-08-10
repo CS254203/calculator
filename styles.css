@@ -1,0 +1,13 @@
+body{
+    background: #FCB31B;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: #1F2937;
+    align-items: center;
+    color: #F9FAF8;
+    font-size: 20px;
+    margin-top: 20px;
+  }
