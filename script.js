@@ -1,10 +1,18 @@
-const display = document.querySelector("#display-text"); 
+const display = document.querySelector("#display-text");
 let number1 = "0";
 let number2 = "0";
 let switchToNumber2 = 0;
 let operation = "";
 let result = 0;
 
+/*
+function modelClick(){
+    switchToNumber2===0? number1 = (number1/100):number2 = (number2/100);
+
+    switchToNumber2===0?display.innerHTML=number1:display.innerHTML=number2
+}*/
+
+//press ac button
 function acOnClick(){
     display.innerHTML="0";
     if(switchToNumber2===0){
@@ -14,6 +22,8 @@ function acOnClick(){
         number2 = "0";
     }
 }
+
+//press c button
 function clearScreen(){
     display.innerHTML="0";
     number1 = "0";
@@ -21,10 +31,9 @@ function clearScreen(){
     switchToNumber2 = 0;
 }
 
-
+//gets value of the button
 function numberOnClick(value){
     const dotButton = document.querySelector("#dot-button");
-    console.log(display.innerHTML);
     if(display.innerHTML.includes('.') || value==='.'){
         dotButton.disabled = true;
      }
@@ -34,7 +43,7 @@ function numberOnClick(value){
 
     if(switchToNumber2===0){
         number1 +=value;
-        //eliminates the initial '0' in front of string
+        //eliminates the initial '0' in front of string of number 1
         if(number1[0] === '0'){
             number1 = number1.slice(1, number1.length);
         }
@@ -44,11 +53,13 @@ function numberOnClick(value){
         }
         display.innerHTML=number1;
     }
+    //eliminates the initial '0' in front of string of number 2
     else{
         number2 +=value;
         if(number2[0] === '0'){
             number2 = number2.slice(1, number2.length);
         }
+        //stops the string from overlaping the display
         else if(number2.length>=11){
             return;
         }
@@ -59,6 +70,7 @@ function numberOnClick(value){
 function addButton(){
     switchToNumber2 = 1;
     operation="+";
+    number2="0";
     display.innerHTML="0";
 }
 
@@ -80,19 +92,15 @@ function divideButton(){
     display.innerHTML="0";
 }
 
-function modelClick(){
-    switchToNumber2===0? number1 = (number1/100):number2 = (number2/100);
-
-    switchToNumber2===0?display.innerHTML=number1:display.innerHTML=number2
-}
-
 function showResult(){
-    operate(number1,number2,operation)
+    operate(number1,number2,operation);
+    number1=result;
+    number2="0";
 }
 function printResult(result){
     result.toString().length>10?display.innerHTML="Error! Long Number":display.innerHTML= result.toString();
     number1 = result;
-    number2 = "0";
+    number2="0";
 }
 function operate(num1,num2,operation){
     switch(operation) {
@@ -109,6 +117,13 @@ function operate(num1,num2,operation){
             printResult(result);
             break;
         case "/":
+            if(num2==="0"){
+                display.innerHTML="Cannot Divide 0";
+                number1="0";
+                number2="0";
+                result="0";
+                return;
+            }
             result = divide(num1,num2);
             printResult(result);
             break;
@@ -119,17 +134,17 @@ function operate(num1,num2,operation){
 }
 
 function add(num1,num2){
-    return (parseFloat(num1) + parseFloat(num2)).toFixed(2);
+    return (parseFloat(num1) + parseFloat(num2)).toFixed(0);
 }
 
 function subtract(num1,num2){
-    return (parseFloat(num1) - parseFloat(num2)).toFixed(2);
+    return (parseFloat(num1) - parseFloat(num2)).toFixed(0);
 }
 
 function multiply(num1,num2){
-    return (parseFloat(num1) * parseFloat(num2)).toFixed(2);
+    return (parseFloat(num1) * parseFloat(num2)).toFixed(0);
 }
 
 function divide(num1,num2){
-    return num2===0? "Error!" : (parseFloat(num1) / parseFloat(num2)).toFixed(2);
+    return num2===0? "Error!" : (parseFloat(num1) / parseFloat(num2)).toFixed(0);
 }
