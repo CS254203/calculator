@@ -122,6 +122,7 @@ function operate(num1,num2,operation){
                 number1="0";
                 number2="0";
                 result="0";
+                switchToNumber2 = 0;
                 return;
             }
             result = divide(num1,num2);
