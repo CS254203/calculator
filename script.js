@@ -13,19 +13,25 @@ function acOnClick(){
     else{
         number2 = "0";
     }
-    console.log("acOnClick number1:" + number1); 
-    console.log("acOnClick number2:" + number2);
 }
 function clearScreen(){
     display.innerHTML="0";
     number1 = "0";
     number2 = "0";
     switchToNumber2 = 0;
-    console.log("clearScreen number1:" + number1); 
-    console.log("clearScreen number2:" + number2);
 }
 
+
 function numberOnClick(value){
+    const dotButton = document.querySelector("#dot-button");
+    console.log(display.innerHTML);
+    if(display.innerHTML.includes('.') || value==='.'){
+        dotButton.disabled = true;
+     }
+    else{
+        dotButton.disabled = false;
+    }
+
     if(switchToNumber2===0){
         number1 +=value;
         //eliminates the initial '0' in front of string
@@ -51,46 +57,42 @@ function numberOnClick(value){
 }
 
 function addButton(){
-    console.log("number1:" + number1); 
-    console.log("number2:" + number2);
     switchToNumber2 = 1;
     operation="+";
     display.innerHTML="0";
 }
 
 function subtractButton(){
-    console.log("number1:" + number1); 
-    console.log("number2:" + number2);
     switchToNumber2 = 1;
     operation="-";
     display.innerHTML="0";
 }
 
 function multiplyButton(){
-    console.log("number1:" + number1); 
-    console.log("number2:" + number2);
     switchToNumber2 = 1;
     operation="*";
     display.innerHTML="0";
 }
 
 function divideButton(){
-    console.log("number1:" + number1); 
-    console.log("number2:" + number2);
     switchToNumber2 = 1;
     operation="/";
     display.innerHTML="0";
+}
+
+function modelClick(){
+    switchToNumber2===0? number1 = (number1/100):number2 = (number2/100);
+
+    switchToNumber2===0?display.innerHTML=number1:display.innerHTML=number2
 }
 
 function showResult(){
     operate(number1,number2,operation)
 }
 function printResult(result){
-    display.innerHTML= result.toString();
+    result.toString().length>10?display.innerHTML="Error! Long Number":display.innerHTML= result.toString();
     number1 = result;
     number2 = "0";
-    console.log("result number1 "+number1);
-    console.log("result number2 "+number2);
 }
 function operate(num1,num2,operation){
     switch(operation) {
@@ -110,21 +112,24 @@ function operate(num1,num2,operation){
             result = divide(num1,num2);
             printResult(result);
             break;
-      } 
+        case "":
+            printResult(result);
+            break;
+      }
 }
 
 function add(num1,num2){
-    return parseInt(num1) + parseInt(num2);
+    return (parseFloat(num1) + parseFloat(num2)).toFixed(2);
 }
 
 function subtract(num1,num2){
-    return num1-num2;
+    return (parseFloat(num1) - parseFloat(num2)).toFixed(2);
 }
 
 function multiply(num1,num2){
-    return num1*num2;
+    return (parseFloat(num1) * parseFloat(num2)).toFixed(2);
 }
 
 function divide(num1,num2){
-    return num2===0? "Error!" : num1/num2;
+    return num2===0? "Error!" : (parseFloat(num1) / parseFloat(num2)).toFixed(2);
 }

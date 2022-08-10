@@ -44,6 +44,8 @@ body{
 #display-text{
     font-size: 45px;
     margin-right: 10px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bolder;
 }
 
 #first-row{

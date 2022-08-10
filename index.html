@@ -19,7 +19,7 @@
                 <div id="first-row">
                     <button class="buttons" onclick="acOnClick()" > AC </button>
                     <button class="buttons" onclick="clearScreen()" > C </button>
-                    <button class="buttons"> % </button>
+                    <button class="buttons" onclick="modelClick()"> % </button>
                     <button class="buttons" onclick="divideButton()"> ÷ </button>
                 </div>
                 <div id="second-row">
@@ -42,7 +42,7 @@
                 </div>
                 <div id="fifth-row">
                     <button class="buttons" value="0" onclick="numberOnClick(value)"> 0 </button>
-                    <button class="buttons"> . </button>
+                    <button class="buttons" id = "dot-button" value="." onclick="numberOnClick(value)"> . </button>
                     <button class="buttons" id = "equal-button" onclick="showResult()"> = </button>
                 </div>
             </div>
