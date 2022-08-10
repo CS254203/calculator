@@ -5,12 +5,12 @@ let switchToNumber2 = 0;
 let operation = "";
 let result = 0;
 
-/*
+
 function modelClick(){
     switchToNumber2===0? number1 = (number1/100):number2 = (number2/100);
 
     switchToNumber2===0?display.innerHTML=number1:display.innerHTML=number2
-}*/
+}
 
 //press ac button
 function acOnClick(){
@@ -77,18 +77,21 @@ function addButton(){
 function subtractButton(){
     switchToNumber2 = 1;
     operation="-";
+    number2="0";
     display.innerHTML="0";
 }
 
 function multiplyButton(){
     switchToNumber2 = 1;
     operation="*";
+    number2="0";
     display.innerHTML="0";
 }
 
 function divideButton(){
     switchToNumber2 = 1;
     operation="/";
+    number2="0";
     display.innerHTML="0";
 }
 
