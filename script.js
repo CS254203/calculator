@@ -1,4 +1,5 @@
 const display = document.querySelector("#display-text");
+const dotButton = document.querySelector("#dot-button");
 let number1 = "0";
 let number2 = "0";
 let switchToNumber2 = 0;
@@ -9,8 +10,18 @@ let isZero = 0;
 
 // press % button
 function modelClick(){
-    switchToNumber2===0? number1 = (number1/100):number2 = (number2/100);
-    switchToNumber2===0?display.innerHTML=number1:display.innerHTML=number2
+    if(switchToNumber2===0){
+        number1 = (number1/100);
+        display.innerHTML=number1
+    }
+    else{
+        if(number1===result){
+            result = (result/100);
+            display.innerHTML=result;
+        }
+        number2 = (number2/100);
+        display.innerHTML=number2;
+    }
 }
 
 //press ac button
@@ -35,7 +46,6 @@ function clearScreen(){
 //gets value of the button
 function numberOnClick(value){
     //check if button . has been pressed
-    const dotButton = document.querySelector("#dot-button");
     if(display.innerHTML.includes('.') || value==='.'){
         dotButton.disabled = true;
      }
@@ -70,6 +80,7 @@ function numberOnClick(value){
 }
 
 function addButton(){
+    dotButton.disabled = false;
     if(switchToNumber2 === 1 && result != 0){
         if(display.innerHTML!= result){
             number1=display.innerHTML;
@@ -83,6 +94,7 @@ function addButton(){
 }
 
 function subtractButton(){
+    dotButton.disabled = false;
     if(switchToNumber2 === 1 && result != 0){
         if(display.innerHTML!= result){
             number1=display.innerHTML;
@@ -95,6 +107,7 @@ function subtractButton(){
 }
 
 function multiplyButton(){
+    dotButton.disabled = false;
     if(switchToNumber2 === 1 && result != 0){
         if(display.innerHTML!= result){
             number1=display.innerHTML;
@@ -107,6 +120,7 @@ function multiplyButton(){
 }
 
 function divideButton(){
+    dotButton.disabled = false;
     if(switchToNumber2 === 1 && result != 0){
         if(display.innerHTML!= result){
             number1=display.innerHTML;
@@ -119,6 +133,7 @@ function divideButton(){
 }
 
 function showResult(){
+    dotButton.disabled = false;
     operate(number1,number2,operation);
     number1=result;
     number2="0";
