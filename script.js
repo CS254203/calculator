@@ -4,6 +4,8 @@ let number2 = "0";
 let switchToNumber2 = 0;
 let operation = "";
 let result = 0;
+let dot = 0;
+let isZero = 0;
 
 // press % button
 function modelClick(){
@@ -163,17 +165,46 @@ function operate(num1,num2,operation){
 }
 
 function add(num1,num2){
-    return (parseFloat(num1) + parseFloat(num2)).toFixed(0);
+    let addResult = 0;
+    addResult = (parseFloat(num1) + parseFloat(num2)).toFixed(4)
+    return trimResult(addResult);
 }
 
 function subtract(num1,num2){
-    return (parseFloat(num1) - parseFloat(num2)).toFixed(0);
+    let subtractResult = 0;
+    subtractResult = (parseFloat(num1) - parseFloat(num2)).toFixed(4)
+    return trimResult(subtractResult);
 }
 
 function multiply(num1,num2){
-    return (parseFloat(num1) * parseFloat(num2)).toFixed(0);
+    let multiplyResult = 0;
+    multiplyResult = (parseFloat(num1) * parseFloat(num2)).toFixed(4);
+    return trimResult(multiplyResult);
 }
 
 function divide(num1,num2){
-    return num2===0? "Error!" : (parseFloat(num1) / parseFloat(num2)).toFixed(2);
+    let divisonResult = 0;
+    divisonResult = num2===0? "Error!" : (parseFloat(num1) / parseFloat(num2)).toFixed(4);
+    return trimResult(divisonResult);
+}
+
+function trimResult(respectiveResult){
+    for(let i = 0 ; i<respectiveResult.length;i++){
+        if(respectiveResult[i]==='.'){
+            console.log("Encontrei o . i ="+i);
+             dot = i;
+             break;
+        }
+    }
+    for(let j = dot; j<respectiveResult.length-1;j++){
+        if(respectiveResult[j+1] != "0"){
+            console.log(respectiveResult[j+1]);
+            isZero = 1;
+        }
+    }
+    if(isZero === 0){
+        respectiveResult = respectiveResult.slice(0, dot);
+    }
+    isZero = 0;
+    return respectiveResult
 }
