@@ -1,7 +1,11 @@
 # calculator
 
-TO DO : 
-See the FLoat(0) <- check if there's any number beside 0 to the right
-of the dot 
+Creation of a calculator using JS.
+Tools used : 
+    CSS
+    JavaScript
+        - arrow functions
+        - loops
+    HTML
 
-Fix the display when nothing is pressed
+available at : https://cs254203.github.io/calculator/
