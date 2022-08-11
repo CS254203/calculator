@@ -17,10 +17,14 @@ function modelClick(){
     else{
         if(number1===result){
             result = (result/100);
+            number1 = result;
             display.innerHTML=result;
+            result.toString().length>10?display.innerHTML="Error: Overflow":display.innerHTML= result.toString();
         }
-        number2 = (number2/100);
-        display.innerHTML=number2;
+        else{
+            number2 = (number2/100);
+            display.innerHTML=number2;
+        }
     }
 }
 
@@ -50,6 +54,9 @@ function numberOnClick(value){
         dotButton.disabled = true;
      }
     else{
+        dotButton.disabled = false;
+    }
+    if(result!=0 && number2==="0"){
         dotButton.disabled = false;
     }
 
@@ -139,6 +146,11 @@ function showResult(){
     number2="0";
 }
 function printResult(result){
+
+    if(result=== "NaN"){
+        display.innerHTML= "Error:Invalid Number";
+        return;
+    }
     result.toString().length>10?display.innerHTML="Error: Overflow":display.innerHTML= result.toString();
     number1 = result;
     number2="0";
@@ -176,29 +188,25 @@ function operate(num1,num2,operation){
 }
 
 function add(num1,num2){
-    let addResult = 0;
-    addResult = (parseFloat(num1) + parseFloat(num2)).toFixed(4);
+    let addResult = (parseFloat(num1) + parseFloat(num2)).toFixed(4);
     operation="";
     return trimResult(addResult);
 }
 
 function subtract(num1,num2){
-    let subtractResult = 0;
-    subtractResult = (parseFloat(num1) - parseFloat(num2)).toFixed(4);
+    let subtractResult =(parseFloat(num1) - parseFloat(num2)).toFixed(4);
     operation="";
     return trimResult(subtractResult);
 }
 
 function multiply(num1,num2){
-    let multiplyResult = 0;
-    multiplyResult = (parseFloat(num1) * parseFloat(num2)).toFixed(4);
+    let multiplyResult = (parseFloat(num1) * parseFloat(num2)).toFixed(4);
     operation="";
     return trimResult(multiplyResult);
 }
 
 function divide(num1,num2){
-    let divisonResult = 0;
-    divisonResult = num2===0? "Error!" : (parseFloat(num1) / parseFloat(num2)).toFixed(4);
+    let divisonResult = num2===0? "Error!" : (parseFloat(num1) / parseFloat(num2)).toFixed(4);
     operation="";
     return trimResult(divisonResult);
 }
@@ -206,14 +214,12 @@ function divide(num1,num2){
 function trimResult(respectiveResult){
     for(let i = 0 ; i<respectiveResult.length;i++){
         if(respectiveResult[i]==='.'){
-            console.log("Encontrei o . i ="+i);
              dot = i;
              break;
         }
     }
     for(let j = dot; j<respectiveResult.length-1;j++){
         if(respectiveResult[j+1] != "0"){
-            console.log(respectiveResult[j+1]);
             isZero = 1;
         }
     }
@@ -221,5 +227,6 @@ function trimResult(respectiveResult){
         respectiveResult = respectiveResult.slice(0, dot);
     }
     isZero = 0;
+
     return respectiveResult
 }
