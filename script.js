@@ -79,7 +79,6 @@ function addButton(){
     switchToNumber2 = 1;
     operation="+";
     number2="0";
-    display.innerHTML="0";
     
 }
 
@@ -93,7 +92,6 @@ function subtractButton(){
     switchToNumber2 = 1;
     operation="-";
     number2="0";
-    display.innerHTML="0";
 }
 
 function multiplyButton(){
@@ -106,7 +104,6 @@ function multiplyButton(){
     switchToNumber2 = 1;
     operation="*";
     number2="0";
-    display.innerHTML="0";
 }
 
 function divideButton(){
@@ -119,7 +116,6 @@ function divideButton(){
     switchToNumber2 = 1;
     operation="/";
     number2="0";
-    display.innerHTML="0";
 }
 
 function showResult(){
