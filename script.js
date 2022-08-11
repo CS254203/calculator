@@ -146,7 +146,6 @@ function showResult(){
     number2="0";
 }
 function printResult(result){
-
     if(result=== "NaN"){
         display.innerHTML= "Error:Invalid Number";
         return;
