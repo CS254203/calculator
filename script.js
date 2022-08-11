@@ -128,7 +128,7 @@ function showResult(){
     number2="0";
 }
 function printResult(result){
-    result.toString().length>10?display.innerHTML="Error! Long Number":display.innerHTML= result.toString();
+    result.toString().length>10?display.innerHTML="Error: Overflow":display.innerHTML= result.toString();
     number1 = result;
     number2="0";
 }
@@ -148,7 +148,7 @@ function operate(num1,num2,operation){
             break;
         case "/":
             if(num2==="0"){
-                display.innerHTML="Cannot Divide 0";
+                display.innerHTML="Error: Divide by 0";
                 number1="0";
                 number2="0";
                 result="0";
@@ -166,25 +166,29 @@ function operate(num1,num2,operation){
 
 function add(num1,num2){
     let addResult = 0;
-    addResult = (parseFloat(num1) + parseFloat(num2)).toFixed(4)
+    addResult = (parseFloat(num1) + parseFloat(num2)).toFixed(4);
+    operation="";
     return trimResult(addResult);
 }
 
 function subtract(num1,num2){
     let subtractResult = 0;
-    subtractResult = (parseFloat(num1) - parseFloat(num2)).toFixed(4)
+    subtractResult = (parseFloat(num1) - parseFloat(num2)).toFixed(4);
+    operation="";
     return trimResult(subtractResult);
 }
 
 function multiply(num1,num2){
     let multiplyResult = 0;
     multiplyResult = (parseFloat(num1) * parseFloat(num2)).toFixed(4);
+    operation="";
     return trimResult(multiplyResult);
 }
 
 function divide(num1,num2){
     let divisonResult = 0;
     divisonResult = num2===0? "Error!" : (parseFloat(num1) / parseFloat(num2)).toFixed(4);
+    operation="";
     return trimResult(divisonResult);
 }
 
