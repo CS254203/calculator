@@ -175,5 +175,5 @@ function multiply(num1,num2){
 }
 
 function divide(num1,num2){
-    return num2===0? "Error!" : (parseFloat(num1) / parseFloat(num2)).toFixed(0);
+    return num2===0? "Error!" : (parseFloat(num1) / parseFloat(num2)).toFixed(2);
 }
