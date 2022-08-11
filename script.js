@@ -5,10 +5,9 @@ let switchToNumber2 = 0;
 let operation = "";
 let result = 0;
 
-
+// press % button
 function modelClick(){
     switchToNumber2===0? number1 = (number1/100):number2 = (number2/100);
-
     switchToNumber2===0?display.innerHTML=number1:display.innerHTML=number2
 }
 
@@ -33,6 +32,7 @@ function clearScreen(){
 
 //gets value of the button
 function numberOnClick(value){
+    //check if button . has been pressed
     const dotButton = document.querySelector("#dot-button");
     if(display.innerHTML.includes('.') || value==='.'){
         dotButton.disabled = true;
@@ -68,10 +68,17 @@ function numberOnClick(value){
 }
 
 function addButton(){
+    if(switchToNumber2 === 1 && result != 0){
+        if(display.innerHTML!= result){
+            number1=display.innerHTML;
+            number2="0";
+        }
+    }
     switchToNumber2 = 1;
     operation="+";
     number2="0";
     display.innerHTML="0";
+    
 }
 
 function subtractButton(){
