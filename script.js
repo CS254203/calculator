@@ -60,6 +60,10 @@ function numberOnClick(value){
         dotButton.disabled = false;
     }
 
+    if(result!=0 && value==="."){
+        dotButton.disabled = true;
+        
+    }
     if(switchToNumber2===0){
         number1 +=value;
         //eliminates the initial '0' in front of string of number 1
