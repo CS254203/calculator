@@ -82,6 +82,12 @@ function addButton(){
 }
 
 function subtractButton(){
+    if(switchToNumber2 === 1 && result != 0){
+        if(display.innerHTML!= result){
+            number1=display.innerHTML;
+            number2="0";
+        }
+    }
     switchToNumber2 = 1;
     operation="-";
     number2="0";
@@ -89,6 +95,12 @@ function subtractButton(){
 }
 
 function multiplyButton(){
+    if(switchToNumber2 === 1 && result != 0){
+        if(display.innerHTML!= result){
+            number1=display.innerHTML;
+            number2="0";
+        }
+    }
     switchToNumber2 = 1;
     operation="*";
     number2="0";
@@ -96,6 +108,12 @@ function multiplyButton(){
 }
 
 function divideButton(){
+    if(switchToNumber2 === 1 && result != 0){
+        if(display.innerHTML!= result){
+            number1=display.innerHTML;
+            number2="0";
+        }
+    }
     switchToNumber2 = 1;
     operation="/";
     number2="0";
